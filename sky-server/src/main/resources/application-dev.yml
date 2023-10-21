@@ -1,0 +1,36 @@
+sky:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky_take_out
+    username: root
+    password: root
+  alioss:
+    endpoint: oss-cn-fuzhou.aliyuncs.com
+    access-key-id: LTAI5t7WY8TndkAdJwasfhGh
+    access-key-secret: euBpjAX3Ti7bLNiGVCCJCd2zrEpP1F
+    bucket-name: springboot-web-image
+
+  redis:
+    host: 127.0.0.1 #url
+    port: 6379      #端口号
+    password: 123456 #密码
+    database: 10    #数据库 默认0
+  #加密
+  wechat:
+    appid: mpw:3zk1quk6ynFpdRbS0hjsRVqjNbQLaZVxVSeqyzOouCo
+    secret: mpw:PvByPoAve6a3QDkDK3V/zUImLHMQ02srk/QtUbRGmF3rYVr56IV2vdlCoQbGLwbE
+    mchid:
+    mch-serial-no:
+    private-key-file-path:
+    api-v3-key:
+    we-chat-pay-cert-file-path:
+    notify-url:
+    refund-notify-url:
+
+  # 配置外卖商家店铺地址和百度地图的AK：
+  shop:
+    address: 福建省泉州市泉州信息工程学院
+  baidu:
+    ak: 3UDcsSESWkfiNWStNEH1guWiAj2KP6PX

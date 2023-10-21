@@ -1,0 +1,80 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${sky.datasource.driver-class-name}
+      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}
+      username: ${sky.datasource.username}
+      password: ${sky.datasource.password}
+  redis:
+    host: ${sky.redis.host} #url
+    port: ${sky.redis.port}      #端口号
+    password: ${sky.redis.password} #密码
+    database: ${sky.redis.database}    #数据库 默认0
+
+
+
+#mybatis:
+#  #mapper配置文件
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.sky.entity
+#  configuration:
+#    #开启驼峰命名
+#    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  type-aliases-package: com.sky.entity
+  global-config:
+    db-config:
+      #id自增
+      id-type: auto
+
+logging:
+  level:
+    com:
+      sky:
+        mapper: debug
+        service: info
+        controller: info
+
+sky:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: itcast
+    # 设置jwt过期时间 24小时
+    admin-ttl: 86400000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: itheima
+    user-ttl: 86400000
+    user-token-name: authentication
+
+  alioss:
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
+
+  wechat:
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
+    #小程序支付所需参数
+    mchid: ${sky.wechat.mchid} #商户号
+    mch-serial-no: ${sky.wechat.mch-serial-no} #商户API证书的证书序列号
+    private-key-file-path: ${sky.wechat.private-key-file-path} # 商户赵朗文件
+    api-v3-key: ${sky.wechat.api-v3-key} #证书解密的密钥
+    we-chat-pay-cert-file-path: ${sky.wechat.we-chat-pay-cert-file-path} #平台证书
+    notify-url: ${sky.wechat.notify-url} #支付成功的回调地址
+    refund-notify-url: ${sky.wechat.refund-notify-url} #退款成功的回调地加
+
+  # 配置外卖商家店铺地址和百度地图的AK：
+  shop:
+    address: ${sky.shop.address}
+  baidu:
+    ak: ${sky.baidu.ak}
